@@ -6,14 +6,15 @@ const handleErrors = (err) =>{
       console.log(err.message, err.code);
       let errors = { email: '', password: ''};
 
-/*
+}
+
 module.exports.signup_get = (req, res) => {
     res.render('signup');
 }
 
 module.exports.login_get = (req, res) => {
     res.render('login'); 
-*/
+ 
 
      // incorrect email
      if (err.message === 'incorrect email') {
