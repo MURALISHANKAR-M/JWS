@@ -16,16 +16,20 @@ app.use(cookiePraser());
 app.set('view engine', 'ejs');
 
 //database connection
-const dbURI ='mongodb+srv://shaun:test1234@cluster0.del96.mongodb.net/node-auth';
-mongoose.connect(dbURI,{ useNewUrlIParser: true, useUnifiedTopology: true, useCreateIndex:true })
-.then((result)=> app.listen(3000))
+const dbURI ='mongodb://localhost:27017/node-auth';
+mongoose.connect(dbURI)
+.then((result)=> {
+    app.listen(3000);
+    console.log('connected to db', "server is running on port 3000");
+})
 .catch((err)=> console.log(err));
+
 
 //routes
 app.get('*', checkUser);
 app.get('/',(req, res) => res.render('home'));
 app.get('/smoothies', requireAuth, (req, res)=> res.render('smoothies'));
-app.use(authRoutes);
+app.use(checkUser);
 
 
 /*
