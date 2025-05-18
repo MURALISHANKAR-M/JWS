@@ -8,7 +8,8 @@
     <label for="password">Password</label>
     <input type="password" name="password" required>
     <div class="password error"></div>
-    <button>Sign up</button>
+    <button>Login</button>
+</form>
     
     <script>
         const form = document.querySelector('form');
@@ -25,9 +26,6 @@
             //get the values
             const email = form.email.value;
             const password = form.password.value;
-    
-            console.log(email,password)
-        });
 
         try{
             const res = await fetch('/login',{
@@ -36,7 +34,6 @@
             headers: { 'Content-Type': 'application/json'}
         });
         const data = await res.json(); 
-        console.log(data);
         if (data.errors){
             emailError.textContent = data.errors.email;
             passwordError.textContent= data.errors.password;
@@ -48,8 +45,8 @@
     catch (err) {
         console.log(err);
     }
+        });
 
     </script>
-    </form>
 
 <%- include('./footer'); -%>
