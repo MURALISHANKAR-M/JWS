@@ -26,10 +26,12 @@ mongoose.connect(dbURI)
 
 
 //routes
-app.get('*', checkUser);
-app.get('/',(req, res) => res.render('home'));
-app.get('/smoothies', requireAuth, (req, res)=> res.render('smoothies'));
 app.use(checkUser);
+app.get('/',(req, res) => res.render('home'));
+app.get('/signup',(req, res) => res.render('partials/signup'));
+app.get('/login',(req, res) => res.render('partials/login'));
+app.get('/smoothies', requireAuth, (req, res)=> res.render('partials/smoothies'));
+// app.use(checkUser);
 
 
 /*
