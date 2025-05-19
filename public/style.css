@@ -39,13 +39,14 @@ nav li a{
 }
 .btn{
     border-radius: 36px;
-    background: #FEE996;
+    background: #a1f121;
 }
 form h2{
     font-size: 2.4em;
     font-weight: 900;
     margin-bottom: 40px;
 }
+
 form{
     width: 360px;
     margin: 0 auto;
@@ -54,6 +55,7 @@ form{
     border-radius: 10px;
     background: white;
 }
+
 input{
     padding: 10px 12px;
     border-radius: 4px;
@@ -134,5 +136,6 @@ footer{
     margin-top: 120px;
     color: #aaa;
 }
+ 
 
 
