@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
+const indexRoutes = require('./routes/indexRoutes');
 const cookiePraser = require('cookie-parser');
-const { requireAuth, checkUser } = require('./middleware/authMiddleware');
+const { checkUser } = require('./middleware/authMiddleware');
 
 
 const app = express();
@@ -27,9 +28,9 @@ mongoose.connect(dbURI)
 
 //routes
 app.use(checkUser);
-app.get('/',(req, res) => res.render('home'));
-app.get('/smoothies', requireAuth, (req, res)=> res.render('partials/smoothies'));
+
 app.use(authRoutes);
+app.use(indexRoutes);
 
 
 /*
